@@ -1,8 +1,34 @@
 # nvim-useful-defaults
 
+## Install the plugin
+
+- lazy.nvim
+
+```lua
+{
+    'sajjathossain/nvim-useful-defaults',
+    config = true --- if you don't want to change any value
+}
+```
+
+or
+
+```
+{
+    'sajjathossain/nvim-useful-defaults',
+    config = function()
+    local status_ok, nud = pcall(require, 'nvim-useful-defaults')
+    if not status_ok then return end
+    nud.setup({
+       ...opts
+    })
+    end
+}
+```
+
 ## the default settings
 
-I found these options useful. So moved them into a package, so that everyone else can use them. I'll try to add opts support in future.
+I found these options useful. So moved them into a package, so that everyone else can use them.
 
 ```lua
 backspace = "start,eol,indent",
@@ -12,13 +38,10 @@ completeopt = "menuone,noselect",
 confirm = true,
 cursorcolumn = true,
 cursorline = true,
--- dir="~/tmp/nvim/swap/"
 encoding = "UTF-8",
 expandtab = true, -- use spaces instead of tabs
 fileencoding = "utf-8",
-foldexpr = "nvim_treesitter#foldexpr()",
 foldmethod = "expr",
--- foldmethod = "marker"       -- enable folding (default 'foldmarker') options: marker, indent
 guifont = "CaskaydiaCove Nerd Font:h15", -- availbale fonts: victor mono, cascadia code, fira code, hack nerd font, Iosevka, Cascadia Code Nerd Font
 ignorecase = true,
 laststatus = 3,                        -- sets status line to take up the whole width
@@ -58,10 +81,4 @@ updatetime = 100,
 undodir = "/tmp/nvim/undo/",
 undofile = true,
 wrap = false,
-
-opt.display:append("lastline")
-opt.path:append({ "**" }) -- Finding files - search down into subfolders
-opt.wildignore:append({ "*/node_modules/*", "*/.git/*" })
-opt.iskeyword:append("-")
 ```
-
