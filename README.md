@@ -13,13 +13,13 @@
 
 or
 
-```
+```lua
 {
     'sajjathossain/nvim-useful-defaults',
     config = function()
-    local status_ok, nud = pcall(require, 'nvim-useful-defaults')
+    local status_ok, nuds = pcall(require, 'nvim-useful-defaults')
     if not status_ok then return end
-    nud.setup({
+    nuds.setup({
        ...opts
     })
     end
