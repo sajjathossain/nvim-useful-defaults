@@ -1,4 +1,4 @@
-local function setup()
+local function setup(userOpts)
   local utils = require("nvim-useful-defaults.utils")
   local opt, setOptions = utils.opt, utils.setOptions
 
@@ -10,16 +10,13 @@ local function setup()
     confirm = true,
     cursorcolumn = true,
     cursorline = true,
-    -- dir="~/tmp/nvim/swap/"
     encoding = "UTF-8",
     expandtab = true, -- use spaces instead of tabs
     fileencoding = "utf-8",
-    foldexpr = "nvim_treesitter#foldexpr()",
     foldmethod = "expr",
-    -- foldmethod = "marker"       -- enable folding (default 'foldmarker') options: marker, indent
     guifont = "CaskaydiaCove Nerd Font:h15", -- availbale fonts: victor mono, cascadia code, fira code, hack nerd font, Iosevka, Cascadia Code Nerd Font
     ignorecase = true,
-    laststatus = 3,                        -- sets status line to take up the whole width
+    laststatus = 3,                          -- sets status line to take up the whole width
     lazyredraw = true,
     list = true,
     listchars = {
@@ -28,15 +25,15 @@ local function setup()
       trail = "•",
       precedes = "<",
     },
-    mouse = "c",         -- activate mouse clicksS
-    number = true,       -- show line number
+    mouse = "c",           -- activate mouse clicksS
+    number = true,         -- show line number
     redrawtime = 0,
     relativenumber = true, -- set line number to relative number
     ruler = true,
-    scrolloff = 8,       -- start scrolling before 3 lines
+    scrolloff = 8,         -- start scrolling before 3 lines
     shell = "zsh",
     shiftround = true,
-    shiftwidth = 2, -- shift 4 spaces when tab
+    shiftwidth = 2,   -- shift 4 spaces when tab
     showcmd = true,
     showmatch = true, -- show matching parenthesis
     showmode = false,
@@ -46,9 +43,9 @@ local function setup()
     smartcase = true,
     smartindent = true, -- autoindent new lines
     smarttab = true,
-    swapfile = false, -- disable swap files
-    syntax = "enable", -- enable syntax highlight
-    tabstop = 2,      -- 1 tab == 4 spaces
+    swapfile = false,   -- disable swap files
+    syntax = "enable",  -- enable syntax highlight
+    tabstop = 2,        -- 1 tab == 4 spaces
     termguicolors = true,
     title = true,
     titlestring = "nvim - %t",
@@ -58,11 +55,7 @@ local function setup()
     wrap = false,
   }
 
-  opt.display:append("lastline")
-  opt.path:append({ "**" }) -- Finding files - search down into subfolders
-  opt.wildignore:append({ "*/node_modules/*", "*/.git/*" })
-  opt.iskeyword:append("-")
-
+  for option, value in pairs(userOpts) do options[option] = value end
   setOptions(options)
 end
 
