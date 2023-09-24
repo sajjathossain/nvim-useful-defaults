@@ -1,3 +1,5 @@
-local options = require("defaults.options")
+local setup = require("defaults.options")
 
-return options
+return {
+	setup = setup
+}
