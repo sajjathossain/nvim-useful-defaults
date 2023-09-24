@@ -1,6 +1,54 @@
-local function setup(userOpts)
+-- function takes user opts as value
+-- @param userOpts (table): a table of options
+--  opts.backspace (string),
+--  opts.backup (boolean),
+--  opts.clipboard (string)
+--  opts.completeopt (string)
+--  opts.confirm (boolean)
+--  opts.cursorcolumn (boolean)
+--  opts.cursorline (boolean)
+--  opts.encoding (string)
+--  opts.expandtab (boolean)
+--  opts.fileencoding (string)
+--  opts.foldmethod (string)
+--  opts.guifont (string)
+--  opts.ignorecase (boolean)
+--  opts.laststatus (number)
+--  opts.lazyredraw (boolean)
+--  opts.list (boolean)
+--  opts.listchars (table)
+--  opts.mouse (string)
+--  opts.number (boolean)
+--  opts.redrawtime (number)
+--  opts.relativenumber (boolean)
+--  opts.ruler (boolean)
+--  opts.scrolloff (number)
+--  opts.shell (string)
+--  opts.shiftround (boolean)
+--  opts.shiftwidth (number)
+--  opts.showcmd (boolean)
+--  opts.showmatch (boolean)
+--  opts.showmode (boolean)
+--  opts.sidescrolloff (number)
+--  opts.signcolumn (string)
+--  opts.showtabline (number)
+--  opts.smartcase (boolean)
+--  opts.smartindent (boolean)
+--  opts.smarttab (boolean)
+--  opts.swapfile (boolean)
+--  opts.syntax (string)
+--  opts.tabstop (number)
+--  opts.termguicolors (boolean)
+--  opts.title (boolean)
+--  opts.titlestring (string)
+--  opts.updatetime (number)
+--  opts.undodir (string)
+--  opts.undofile (boolean)
+--  opts.wrap (boolean)
+
+local setup = function( --[[optional]] userOpts)
   local utils = require("nvim-useful-defaults.utils")
-  local opt, setOptions = utils.opt, utils.setOptions
+  local setOptions = utils.setOptions
 
   local options = {
     backspace = "start,eol,indent",
